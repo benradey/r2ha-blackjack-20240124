@@ -10,7 +10,7 @@ public class CardDisplayTest {
     void displayTenAsString() {
         Card card = new Card(Suit.CLUBS, Rank.TEN);
 
-        String displayString = card.display();
+        String displayString = ConsoleCard.display(card);
 
         assertThat(displayString)
                 .isEqualTo("[30m┌─────────┐[1B[11D│10       │[1B[11D│         │[1B[11D│    ♣    │[1B[11D│         │[1B[11D│       10│[1B[11D└─────────┘");
@@ -20,7 +20,7 @@ public class CardDisplayTest {
     void displayNonTenCardAsString() {
         Card card = new Card(Suit.SPADES, Rank.FOUR);
 
-        String displayString = card.display();
+        String displayString = ConsoleCard.display(card);
 
         assertThat(displayString)
                 .isEqualTo("[30m┌─────────┐[1B[11D│4        │[1B[11D│         │[1B[11D│    ♠    │[1B[11D│         │[1B[11D│        4│[1B[11D└─────────┘");
