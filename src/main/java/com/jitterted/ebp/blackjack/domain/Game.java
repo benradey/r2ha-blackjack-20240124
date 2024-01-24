@@ -63,7 +63,6 @@ public class Game {
         return playerHand;
     }
 
-
     public void playerHits() {
         playerHand.drawFrom(deck);
         playerDone = playerHand.isBusted();
