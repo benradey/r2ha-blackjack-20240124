@@ -11,7 +11,7 @@ class GameOutcomeTest {
     @Disabled
         // until we're done with our PREPARE REFACTORING
     void playerHitsAndGoesBustThenOutcomeIsPlayerLoses() {
-        Game game = new Game();
+        Game game = new Game(new Deck());
         game.initialDeal();
 
         game.playerHits();
