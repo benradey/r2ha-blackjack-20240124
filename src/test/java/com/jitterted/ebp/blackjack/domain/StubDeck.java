@@ -27,6 +27,11 @@ public class StubDeck implements Deck {
                             Rank.QUEEN, Rank.JACK);
     }
 
+    static Deck playerPushesDealer() {
+        return new StubDeck(Rank.TEN, Rank.QUEEN,
+                            Rank.NINE, Rank.NINE);
+    }
+
     @Override
     public Card draw() {
         return iterator.next();
@@ -34,6 +39,7 @@ public class StubDeck implements Deck {
 
     @Override
     public int size() {
-        return 0;
+        // "crash test": blow up if someone calls this, since we don't expect it to be used during our tests
+        throw new UnsupportedOperationException();
     }
 }
