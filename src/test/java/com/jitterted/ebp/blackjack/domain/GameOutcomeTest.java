@@ -89,6 +89,21 @@ class GameOutcomeTest {
                 .isFalse();
     }
 
+    @Test
+    void standResultsInDealerDrawingCardOnTheirTurn() {
+        Game game = new Game(new StubDeck(Rank.TEN, Rank.QUEEN,
+                                          Rank.NINE, Rank.FIVE,
+                /*                                */ Rank.SIX));
+        game.initialDeal();
+
+        game.playerStands();
+
+        assertThat(game.dealerHand().cards())
+                .as("Expected Dealer to take their turn and Draw 1 additional card")
+                .hasSize(3);
+    }
+
+
 // encapsulated setup code:
 
     private static Game createGameAndDoInitialDeal(Deck deck) {
