@@ -1,6 +1,5 @@
 package com.jitterted.ebp.blackjack.domain;
 
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -72,17 +71,24 @@ class GameOutcomeTest {
                 .isEqualByComparingTo(GameOutcome.PLAYER_BEATS_DEALER);
     }
 
-    @Nested
-    class PlayerDone {
+    @Test
+    void noBlackjackDealtPlayerIsNotDone() {
+        Deck notDealtBlackjack = new StubDeck(Rank.EIGHT, Rank.NINE,
+                                              Rank.THREE, Rank.EIGHT);
+        Game game = new Game(notDealtBlackjack);
 
-        @Test
-        void playerDoneIsFalseWhenGameIsCreated() {
-            Game game = new Game(new StubDeck(Rank.TEN));
+        game.initialDeal();
 
-            assertThat(game.isPlayerDone())
-                    .isFalse();
-        }
+        assertThat(game.isPlayerDone())
+                .isFalse();
+    }
 
+    @Test
+    void playerDoneIsFalseWhenGameIsCreated() {
+        Game game = new Game(new StubDeck(Rank.TEN));
+
+        assertThat(game.isPlayerDone())
+                .isFalse();
     }
 
 // encapsulated setup code:
