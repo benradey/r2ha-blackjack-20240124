@@ -116,5 +116,18 @@ class BlackjackControllerTest {
                 .isTrue();
     }
 
+    @Test
+    void standResultsInDealerDrawingCardOnTheirTurn() {
+        Game game = new Game(new StubDeck(Rank.TEN, Rank.QUEEN,
+                                          Rank.NINE, Rank.FIVE,
+                /*                                */ Rank.SIX));
+        BlackjackController blackjackController = new BlackjackController(game);
+        blackjackController.startGame();
 
+        blackjackController.standCommand();
+
+        assertThat(game.dealerHand().cards())
+                .as("Expected Dealer to take their turn and Draw 1 additional card")
+                .hasSize(3);
+    }
 }
