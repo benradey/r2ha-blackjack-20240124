@@ -116,4 +116,16 @@ class BlackjackControllerTest {
                 .isTrue();
     }
 
+    @Test
+    public void playerDealtBlackjackRedirectsToDone() throws Exception {
+        Game game = new Game(StubDeck.playerDealtBlackjackDealerDoesNotHaveBlackjack());
+        BlackjackController blackjackController = new BlackjackController(game);
+
+        String redirectPage = blackjackController.startGame();
+
+        assertThat(redirectPage)
+                .isEqualTo("redirect:/done");
+    }
+
+
 }
