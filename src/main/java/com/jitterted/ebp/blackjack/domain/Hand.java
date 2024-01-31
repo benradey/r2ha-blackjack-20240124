@@ -46,6 +46,7 @@ public class Hand {
     }
 
     public void drawFrom(Deck deck) {
+        // if we're busted or have blackjack, any call to this method MUST throw an exception
         cards.add(deck.draw());
     }
 
