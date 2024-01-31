@@ -4,7 +4,6 @@ import com.jitterted.ebp.blackjack.domain.Card;
 import com.jitterted.ebp.blackjack.domain.Deck;
 import com.jitterted.ebp.blackjack.domain.Game;
 import com.jitterted.ebp.blackjack.domain.Rank;
-import com.jitterted.ebp.blackjack.domain.ShuffledDeck;
 import com.jitterted.ebp.blackjack.domain.StubDeck;
 import com.jitterted.ebp.blackjack.domain.Suit;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ class BlackjackControllerTest {
 
     @Test
     void startGameResultsInTwoCardsDealtToPlayer() {
-        Game game = new Game(new ShuffledDeck());
+        Game game = new Game(StubDeck.playerNotDealtBlackjack());
         BlackjackController blackjackController = new BlackjackController(game);
 
         String redirectPage = blackjackController.startGame();
