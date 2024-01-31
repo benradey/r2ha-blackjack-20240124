@@ -13,8 +13,10 @@ class BlackjackControllerTest {
         Game game = new Game(new ShuffledDeck());
         BlackjackController blackjackController = new BlackjackController(game);
 
-        blackjackController.startGame();
+        String redirectPage = blackjackController.startGame();
 
+        assertThat(redirectPage)
+                .isEqualTo("redirect:/game");
         assertThat(game.playerHand().cards())
                 .as("Expected 2 cards to be dealt to the player from the Initial Deal")
                 .hasSize(2);
