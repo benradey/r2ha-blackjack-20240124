@@ -15,6 +15,8 @@ class GameOutcomeTest {
 
         assertThat(game.determineOutcome())
                 .isEqualTo(GameOutcome.PLAYER_BUSTED);
+        assertThat(game.isPlayerDone())
+                .isTrue();
     }
 
     @Test
@@ -26,6 +28,8 @@ class GameOutcomeTest {
 
         assertThat(game.determineOutcome())
                 .isEqualTo(GameOutcome.PLAYER_BEATS_DEALER);
+        assertThat(game.isPlayerDone())
+                .isTrue();
     }
 
     @Test
@@ -37,6 +41,8 @@ class GameOutcomeTest {
 
         assertThat(game.determineOutcome())
                 .isEqualTo(GameOutcome.PLAYER_PUSHES_DEALER);
+        assertThat(game.isPlayerDone())
+                .isTrue();
     }
 
     @Test
