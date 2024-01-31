@@ -111,6 +111,9 @@ class BlackjackControllerTest {
 
         assertThat(redirectPage)
                 .isEqualTo("redirect:/done");
+        assertThat(game.isPlayerDone())
+                .as("Player must be done after Stand")
+                .isTrue();
     }
 
 
