@@ -53,6 +53,9 @@ class GameOutcomeTest {
 
         assertThat(game.determineOutcome())
                 .isEqualByComparingTo(GameOutcome.PLAYER_WINS_BLACKJACK);
+        assertThat(game.isPlayerDone())
+                .as("Expected Player to be Done when dealt Blackjack")
+                .isTrue();
     }
 
     // Retargeted: move closer to the behavior we're testing
