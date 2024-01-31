@@ -22,9 +22,9 @@ public class WebConfigurationTest {
     }
 
     @Test
-    void postToStartGameEndpointIsStatus200Ok() throws Exception {
+    void postToStartGameEndpointIsRedirection() throws Exception {
         mockMvc.perform(post("/start-game"))
-               .andExpect(status().isOk());
+               .andExpect(status().is3xxRedirection());
     }
 
 }
