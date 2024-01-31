@@ -23,7 +23,6 @@ class GameOutcomeTest {
         Game game = createGameAndDoInitialDeal(StubDeck.playerStandsAndBeatsDealer());
 
         game.playerStands();
-        game.dealerTurn();
 
         assertThat(game.determineOutcome())
                 .isEqualTo(GameOutcome.PLAYER_BEATS_DEALER);
@@ -36,7 +35,6 @@ class GameOutcomeTest {
         Game game = createGameAndDoInitialDeal(StubDeck.playerPushesDealer());
 
         game.playerStands();
-        game.dealerTurn();
 
         assertThat(game.determineOutcome())
                 .isEqualTo(GameOutcome.PLAYER_PUSHES_DEALER);
