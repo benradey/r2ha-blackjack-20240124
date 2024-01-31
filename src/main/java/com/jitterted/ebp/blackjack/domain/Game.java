@@ -29,7 +29,7 @@ public class Game {
             return GameOutcome.PLAYER_BUSTED;
         } else if (dealerHand.isBusted()) {
             return GameOutcome.DEALER_BUSTED;
-        } else if (playerHand.value() == 21) {
+        } else if (playerHand.value() == 21 && playerHand.cards().count() == 2) {
             return GameOutcome.PLAYER_WINS_BLACKJACK;
         } else if (playerHand.beats(dealerHand)) {
             return GameOutcome.PLAYER_BEATS_DEALER;
