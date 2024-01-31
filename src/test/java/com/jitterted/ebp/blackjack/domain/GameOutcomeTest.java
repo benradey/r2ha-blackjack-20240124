@@ -49,6 +49,8 @@ class GameOutcomeTest {
                 .isEqualByComparingTo(GameOutcome.PLAYER_WINS_BLACKJACK);
     }
 
+    // Retargeted: move closer to the behavior we're testing
+    // because we're now testing "is this hand Blackjack" at a DISTANCE
     @Test
     void playerWithHandValueOf21And3CardsIsNotBlackjack() {
         Game game = createGameAndDoInitialDeal(new StubDeck(Rank.JACK, Rank.NINE,
