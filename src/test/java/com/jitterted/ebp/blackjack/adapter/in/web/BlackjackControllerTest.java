@@ -56,5 +56,17 @@ class BlackjackControllerTest {
                 .containsExactly("10♦", "K♦");
     }
 
+    @Test
+    public void hitCommandResultsInThirdCardDealtToPlayer() throws Exception {
+        Game game = new Game(new ShuffledDeck());
+        BlackjackController blackjackController = new BlackjackController(game);
+        blackjackController.startGame();
+
+        String redirectPage = blackjackController.hitCommand();
+
+        assertThat(redirectPage)
+                .isEqualTo("redirect:/game");
+    }
+
 
 }
