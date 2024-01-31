@@ -52,6 +52,12 @@ public class StubDeck implements Deck {
                             Rank.THREE, Rank.EIGHT);
     }
 
+    static Deck dealerDrawsCardAfterPlayerStands() {
+        return new StubDeck(Rank.TEN, Rank.QUEEN,
+                            Rank.NINE, Rank.FIVE,
+                /*                                */ Rank.SIX);
+    }
+
     @Override
     public Card draw() {
         return iterator.next();

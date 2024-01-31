@@ -91,9 +91,7 @@ class GameOutcomeTest {
 
     @Test
     void standResultsInDealerDrawingCardOnTheirTurn() {
-        Game game = new Game(new StubDeck(Rank.TEN, Rank.QUEEN,
-                                          Rank.NINE, Rank.FIVE,
-                /*                                */ Rank.SIX));
+        Game game = new Game(StubDeck.dealerDrawsCardAfterPlayerStands());
         game.initialDeal();
 
         game.playerStands();
