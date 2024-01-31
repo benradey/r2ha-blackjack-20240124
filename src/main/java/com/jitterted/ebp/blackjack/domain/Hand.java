@@ -58,6 +58,8 @@ public class Hand {
     }
 
     boolean beats(Hand hand) {
+        // not allowed to ask this question if either hand is busted
+        // not allowed if either hand is Blackjack
         return hand.value() < value();
     }
 
